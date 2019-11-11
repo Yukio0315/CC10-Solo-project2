@@ -4,7 +4,7 @@
 import { mapActions } from "vuex"
 export default {
   methods: {
-    ...mapActions("quiz", ["fetchQuiz"])
+    ...mapActions({ fetchQuiz: "quiz/fetchQuiz" })
   }
 }
 </script>

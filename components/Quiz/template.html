@@ -1,12 +1,13 @@
 <div class="quiz">
   <div class="question">
     <h2>Q1</h2>
-    <div>buraburaburabura</div>
+    <div>{{ quiz/currentQuestionAndCategory }}</div>
   </div>
   <div class="options">
-    <h3>option</h3>
+    <h3>options</h3>
     <div>1. aho</div>
     <div>2. doji</div>
     <div>3. manuke</div>
   </div>
+  <button class="button" @click="addQuizNo">Next</button>
 </div>
