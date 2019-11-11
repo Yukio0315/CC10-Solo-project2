@@ -1,13 +1,16 @@
 <div class="quiz">
   <div class="question">
-    <h2>Q1</h2>
-    <div>{{ quiz/currentQuestionAndCategory }}</div>
+    <h2>Q{{ quizNo }}</h2>
+    <div>{{ currentQuestionAndCategory["question"] }}</div>
+    <div>{{ currentQuestionAndCategory["category"] }}</div>
   </div>
   <div class="options">
     <h3>options</h3>
-    <div>1. aho</div>
-    <div>2. doji</div>
-    <div>3. manuke</div>
+    <div @click="judgeAnswer(currentOptions[0])">{{currentOptions[0]}}</div>
+    <div @click="judgeAnswer(currentOptions[1])">{{currentOptions[1]}}</div>
+    <div @click="judgeAnswer(currentOptions[2])">{{currentOptions[2]}}</div>
+    <div @click="judgeAnswer(currentOptions[3])">{{currentOptions[3]}}</div>
   </div>
-  <button class="button" @click="addQuizNo">Next</button>
+  <button class="button" @click="addQuizNo">Pass</button>
+  <button class="button" @click="goHome">Give up</button>
 </div>

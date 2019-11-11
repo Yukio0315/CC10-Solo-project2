@@ -7,13 +7,13 @@
       <div v-if="quizNo === 0">
         <Start />
       </div>
-      <div v-if="[1, 2, 3, 4].includes(quizNo)">
+      <div v-if="[1, 2, 3, 4, 5].includes(quizNo)">
         <Quiz />
       </div>
-      <div v-if="quizNo === 5 && correctCount === 5">
+      <div v-if="quizNo === 6 && correctCount === 5">
         <Win />
       </div>
-      <div v-if="quizNo === 5 && correctCount !== 5">
+      <div v-if="quizNo === 6 && correctCount !== 5">
         <Loose />
       </div>
     </div>
@@ -34,7 +34,10 @@ export default {
     Win
   },
   computed: {
-    ...mapGetters({ quizNo: "quiz/quizNo" }),
+    ...mapGetters({
+      quizNo: "quiz/quizNo",
+      finished: "quiz/finished"
+    }),
     correctCount() {
       return this.$store.getters["quiz/correctCount"]
     }

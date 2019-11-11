@@ -3,24 +3,23 @@
 <script>
 import { mapMutations } from "vuex"
 export default {
-  // computed: {
-  //   currentQuestionAndCategory() {
-  //     // console.log(
-  //     //   this.$store.state.quiz.results[this.$store.state.quizNo]["question"]
-  //     // )
-  //     // return "hoge"
-  //     return {
-  //       question: this.$store.state.quiz.results[this.$store.state.quizNo][
-  //         "question"
-  //       ],
-  //       category: this.$store.state.quiz.results[this.$store.state.quizNo][
-  //         "category"
-  //       ]
-  //     }
-  //   }
-  // },
+  computed: {
+    quizNo() {
+      return this.$store.getters["quiz/quizNo"]
+    },
+    currentQuestionAndCategory() {
+      return this.$store.getters["quiz/currentQuestionAndCategory"]
+    },
+    currentOptions() {
+      return this.$store.getters["quiz/currentOptions"]
+    }
+  },
   methods: {
-    ...mapMutations("quiz", ["addQuizNo"])
+    ...mapMutations({
+      addQuizNo: "quiz/addQuizNo",
+      judgeAnswer: "quiz/judgeAnswer",
+      goHome: "quiz/goHome"
+    })
   }
 }
 </script>
