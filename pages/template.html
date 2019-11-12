@@ -1,0 +1,8 @@
+<section class="container">
+  <div v-if="isSignIn">
+    <SignIn />
+  </div>
+  <div v-if="!isSignIn">
+    <SignUp />
+  </div>
+</section>

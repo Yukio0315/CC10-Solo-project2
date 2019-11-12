@@ -1,0 +1,17 @@
+<div class="container">
+  <h1 class="title">
+    Simple Quiz
+  </h1>
+  <div v-if="quizNo === 1 && start === false">
+    <Start />
+  </div>
+  <div v-if="[1, 2, 3, 4, 5].includes(quizNo) && start === true">
+    <Quiz />
+  </div>
+  <div v-if="quizNo === 6 && correctCount === 5">
+    <Win />
+  </div>
+  <div v-if="quizNo === 6 && correctCount !== 5">
+    <Loose />
+  </div>
+</div>

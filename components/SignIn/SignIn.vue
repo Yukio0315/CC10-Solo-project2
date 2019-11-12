@@ -1,29 +1,17 @@
 <template src="./template.html" />
 
 <script>
-import SignUp from "~/components/SignUp/SignUp.vue"
-import SignIn from "~/components/SignIn/SignIn.vue"
 import firebase from "~/plugins/firebase"
+import { mapMutations } from "vuex"
 export default {
-  components: {
-    SignUp,
-    SignIn
-  },
   data() {
     return {
       email: "",
       password: ""
     }
   },
-  computed: {
-    isSignIn() {
-      return this.$store.state.isSignIn
-    }
-  },
   methods: {
     signIn() {
-      console.log("a")
-      console.log(this.email, this.password)
       firebase
         .auth()
         .signInWithEmailAndPassword(this.email, this.password)
@@ -34,7 +22,10 @@ export default {
         .catch(error => {
           alert(error.message)
         })
-    }
+    },
+    ...mapMutations({
+      toggleSinInAndSignUp: "toggleSinInAndSignUp"
+    })
   }
 }
 </script>
