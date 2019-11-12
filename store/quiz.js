@@ -1,5 +1,6 @@
 export const state = () => ({
   quizNo: 0,
+  formerQuizNo: 0,
   correctCount: 0,
   rightOrWrong: [],
   answers: [],
@@ -11,13 +12,13 @@ export const state = () => ({
 export const getters = {
   currentQuestionAndCategory(state) {
     return {
-      question: state.quiz[state.quizNo - 1]["question"],
-      category: state.quiz[state.quizNo - 1]["category"]
+      question: state.quiz[state.formerQuizNo]["question"],
+      category: state.quiz[state.formerQuizNo]["category"]
     }
   },
   currentOptions(state) {
-    const options = [state.quiz[state.quizNo - 1]["correct_answer"]].concat(
-      state.quiz[state.quizNo - 1]["incorrect_answers"]
+    const options = [state.quiz[state.formerQuizNo]["correct_answer"]].concat(
+      state.quiz[state.formerQuizNo]["incorrect_answers"]
     )
     // Fisher–Yates shuffle Algorithm
     for (let i = options.length - 1; i > 0; i--) {
@@ -55,13 +56,13 @@ export const mutations = {
   setInitialQuizAndValue(state, quiz) {
     state.quiz = quiz.results
     state.quizNo = 1
-    state.currentAnswer = state.quiz[state.quizNo - 1]["correct_answer"]
+    state.currentAnswer = state.quiz[state.formerQuizNo]["correct_answer"]
   },
   addQuizNo(state) {
     state.quizNo++
     state.rightOrWrong.push("skipped")
     state.answers.push("")
-    state.currentAnswer = state.quiz[state.quizNo - 1]["correct_answer"]
+    state.currentAnswer = state.quiz[state.formerQuizNo]["correct_answer"]
   },
   judgeAnswer(state, answer) {
     if (answer !== state.currentAnswer) state.rightOrWrong.push("Wrong")
@@ -72,7 +73,7 @@ export const mutations = {
     state.quizNo++
     state.answers.push(answer)
     if (state.quizNo <= 5) {
-      state.currentAnswer = state.quiz[state.quizNo - 1]["correct_answer"]
+      state.currentAnswer = state.quiz[state.formerQuizNo]["correct_answer"]
     }
   },
   goHome(state) {
@@ -80,6 +81,9 @@ export const mutations = {
     state.correctCount = 0
     state.quiz = []
     state.currentAnswer = ""
+  },
+  formerQuizNo(state) {
+    state.formerQuizNo = state.quizNo - 1
   }
 }
 
