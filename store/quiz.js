@@ -1,6 +1,8 @@
 export const state = () => ({
   quizNo: 0,
   correctCount: 0,
+  rightOrWrong: [],
+  answers: [],
   quiz: [],
   currentAnswer: "",
   finished: false
@@ -26,6 +28,12 @@ export const getters = {
     }
     return options
   },
+  correctAnswers(state) {
+    return state.quiz.map(quiz => quiz["correct_answer"])
+  },
+  questions(state) {
+    return state.quiz.map(quiz => quiz["question"])
+  },
   quizNo(state) {
     return state.quizNo
   },
@@ -34,6 +42,12 @@ export const getters = {
   },
   finished(state) {
     return state.finished
+  },
+  answers(state) {
+    return state.answers
+  },
+  rightOrWrong(state) {
+    return state.rightOrWrong
   }
 }
 
@@ -45,11 +59,18 @@ export const mutations = {
   },
   addQuizNo(state) {
     state.quizNo++
+    state.rightOrWrong.push("skipped")
+    state.answers.push("")
     state.currentAnswer = state.quiz[state.quizNo - 1]["correct_answer"]
   },
   judgeAnswer(state, answer) {
-    if (answer === state.currentAnswer) state.correctCount++
+    if (answer !== state.currentAnswer) state.rightOrWrong.push("Wrong")
+    if (answer === state.currentAnswer) {
+      state.rightOrWrong.push("Right")
+      state.correctCount++
+    }
     state.quizNo++
+    state.answers.push(answer)
     if (state.quizNo <= 5) {
       state.currentAnswer = state.quiz[state.quizNo - 1]["correct_answer"]
     }

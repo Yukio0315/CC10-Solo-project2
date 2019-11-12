@@ -1,4 +1,22 @@
 <div class="looser">
-  <h2>You are looser</h2>
+  <h2>You are looser study again</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Question</th>
+        <th>Your answer</th>
+        <th>Correct answer</th>
+        <th>Right/Wrong</th>
+      </tr>
+    </thead>
+    <tbody v-for="(question, i) in questions">
+      <tr>
+        <td>{{ question }}</td>
+        <td>{{ answers[i] }}</td>
+        <td>{{ correctAnswers[i] }}</td>
+        <td>{{ rightOrWrong[i] }}</td>
+      </tr>
+    </tbody>
+  </table>
   <button @click="goHome">Home</button>
 </div>
