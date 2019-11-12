@@ -11,11 +11,9 @@ export default {
       return this.$store.getters["quiz/getQuestions"]
     },
     answers() {
-      console.log(this.$store.state.quiz.answers)
       return this.$store.state.quiz.answers
     },
     rightOrWrong() {
-      console.log(this.$store.state.quiz.rightOrWrong)
       return this.$store.state.quiz.rightOrWrong
     }
   },
