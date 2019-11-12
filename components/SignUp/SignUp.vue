@@ -24,7 +24,7 @@ export default {
         })
     },
     ...mapMutations({
-      toggleSinInAndSignUp: "toggleSinInAndSignUp"
+      toggleSignInAndSignUp: "toggleSignInAndSignUp"
     })
   }
 }

@@ -5,7 +5,7 @@ import Start from "~/components/Start/Start.vue"
 import Quiz from "~/components/Quiz/Quiz.vue"
 import Loose from "~/components/Loose/Loose.vue"
 import Win from "~/components/Win/Win.vue"
-// import { mapGetters } from "vuex"
+import firebase from "~/plugins/firebase"
 export default {
   components: {
     Start,
@@ -13,11 +13,6 @@ export default {
     Loose,
     Win
   },
-  // data() {
-  //   return {
-  //     loaded: false
-  //   }
-  // },
   computed: {
     quizNo() {
       return this.$store.state.quiz.quizNo
@@ -31,15 +26,10 @@ export default {
     start() {
       return this.$store.state.quiz.start
     }
-    // ...mapGetters(["isAuthenticated"])
+  },
+  created() {
+    const user = firebase.auth().currentUser
+    if (!user) this.$router.push("/")
   }
-  // async mounted() {
-  //   setTimeout(() => {
-  //     if (!this.isAuthenticated) {
-  //       this.$router.push("/")
-  //     }
-  //     this.loaded = true
-  //   }, 0)
-  // }
 }
 </script>

@@ -5,5 +5,4 @@ export default {
     )
     commit("setInitialQuizAndValue", quiz)
   }
-  // getUser({ root })
 }

@@ -1,6 +1,5 @@
 export default {
   currentQuestionAndCategory(state) {
-    // return state.quiz
     if (state.quiz === undefined) return []
     return {
       question: state.quiz[state.quizNo - 1]["question"],
@@ -8,7 +7,6 @@ export default {
     }
   },
   currentOptions(state) {
-    // return state.quiz
     if (state.quiz === undefined) return []
     const options = [state.quiz[state.quizNo - 1]["correct_answer"]].concat(
       state.quiz[state.quizNo - 1]["incorrect_answers"]
