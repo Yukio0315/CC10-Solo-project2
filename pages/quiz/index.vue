@@ -4,10 +4,10 @@
       <h1 class="title">
         Simple Quiz
       </h1>
-      <div v-if="quizNo === 0">
+      <div v-if="quizNo === 1 && start === false">
         <Start />
       </div>
-      <div v-if="[1, 2, 3, 4, 5].includes(quizNo)">
+      <div v-if="[1, 2, 3, 4, 5].includes(quizNo) && start === true">
         <Quiz />
       </div>
       <div v-if="quizNo === 6 && correctCount === 5">
@@ -25,7 +25,6 @@ import Start from "~/components/Start/Start.vue"
 import Quiz from "~/components/Quiz/Quiz.vue"
 import Loose from "~/components/Loose/Loose.vue"
 import Win from "~/components/Win/Win.vue"
-import { mapGetters } from "vuex"
 export default {
   components: {
     Start,
@@ -34,12 +33,17 @@ export default {
     Win
   },
   computed: {
-    ...mapGetters({
-      quizNo: "quiz/quizNo",
-      finished: "quiz/finished"
-    }),
+    quizNo() {
+      return this.$store.state.quiz.quizNo
+    },
+    finished() {
+      return this.$store.state.quiz.finished
+    },
     correctCount() {
-      return this.$store.getters["quiz/correctCount"]
+      return this.$store.state.quiz.correctCount
+    },
+    start() {
+      return this.$store.state.quiz.start
     }
   }
 }

@@ -5,16 +5,18 @@ import { mapMutations } from "vuex"
 export default {
   computed: {
     correctAnswers() {
-      return this.$store.getters["quiz/correctAnswers"]
+      return this.$store.getters["quiz/getCorrectAnswers"]
     },
     questions() {
-      return this.$store.getters["quiz/questions"]
+      return this.$store.getters["quiz/getQuestions"]
     },
     answers() {
-      return this.$store.getters["quiz/answers"]
+      console.log(this.$store.state.quiz.answers)
+      return this.$store.state.quiz.answers
     },
     rightOrWrong() {
-      return this.$store.getters["quiz/rightOrWrong"]
+      console.log(this.$store.state.quiz.rightOrWrong)
+      return this.$store.state.quiz.rightOrWrong
     }
   },
   methods: {

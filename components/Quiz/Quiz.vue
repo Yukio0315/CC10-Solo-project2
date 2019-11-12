@@ -5,7 +5,7 @@ import { mapMutations } from "vuex"
 export default {
   computed: {
     quizNo() {
-      return this.$store.getters["quiz/quizNo"]
+      return this.$store.state.quiz.quizNo
     },
     currentQuestionAndCategory() {
       return this.$store.getters["quiz/currentQuestionAndCategory"]
