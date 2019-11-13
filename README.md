@@ -17,7 +17,7 @@ It is kind of a quiz application which uses "[Open TRIVIA DATABASE](https://open
 - [Open TRIVIA DATABASE](https://opentdb.com/api_config.php)
 
 ## Demo
-
+https://cc10-solo2-quiz.firebaseapp.com/
 
 ## Build Setup
 
@@ -43,3 +43,4 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 - My page function
 - Unsubscribe function
 - Stock Mistaken problems function.
+- Write test
