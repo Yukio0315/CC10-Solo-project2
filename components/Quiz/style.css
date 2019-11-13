@@ -1,0 +1,23 @@
+h2 {
+  color: green;
+  font-size: 30px;
+  padding-top: 20px;
+}
+.category {
+  font-size: 30px;
+}
+img {
+  width: 400px;
+}
+.sentence {
+  margin-top: 30px;
+  font-size: 25px;
+}
+h3 {
+  margin-top: 40px;
+  font-size: 25px
+}
+.buttons {
+  margin-top: 30px;
+  margin-bottom: 100px;
+}

@@ -1,16 +1,22 @@
 <div class="quiz">
   <div class="question">
     <h2>Q{{ quizNo }}</h2>
-    <div>{{ currentQuestionAndCategory["question"] }}</div>
-    <div>{{ currentQuestionAndCategory["category"] }}</div>
+    <el-progress class="progress" :percentage="percentage" :color="customColors"></el-progress>
+    <img src="~/assets/images/money-tree2.jpeg" />
+    <div class="category">Category : {{ currentQuestionAndCategory["category"] }}</div>
+    <div class="sentence">{{ currentQuestionAndCategory["question"] }}</div>
   </div>
   <div class="options">
     <h3>options</h3>
-    <div @click="judgeAnswer(currentOptions[0])">{{currentOptions[0]}}</div>
-    <div @click="judgeAnswer(currentOptions[1])">{{currentOptions[1]}}</div>
-    <div @click="judgeAnswer(currentOptions[2])">{{currentOptions[2]}}</div>
-    <div @click="judgeAnswer(currentOptions[3])">{{currentOptions[3]}}</div>
+    <div class="buttons">
+      <el-button type="primary" round @click="judgeAnswer(currentOptions[0]); increase()">1. {{currentOptions[0]}}</el-button>
+      <el-button type="primary" round @click="judgeAnswer(currentOptions[1]); increase()">2. {{currentOptions[1]}}</el-button>
+      <el-button type="primary" round @click="judgeAnswer(currentOptions[2]); increase()">3. {{currentOptions[2]}}</el-button>
+      <el-button type="primary" round @click="judgeAnswer(currentOptions[3]); increase()">4. {{currentOptions[3]}}</el-button>
+    </div>
   </div>
-  <button class="button" @click="addQuizNo">Pass</button>
-  <button class="button" @click="goHome">Give up</button>
+  <div class="not-answer">
+    <el-button type="info" round class="button" @click="goHome">Give up</el-button>
+    <el-button type="warning" round class="button" @click="addQuizNo; increase()">Pass</el-button>
+  </div>
 </div>

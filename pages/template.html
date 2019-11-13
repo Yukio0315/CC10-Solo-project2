@@ -1,8 +1,12 @@
-<section class="container">
+<el-container class="container">
+  <h2 title="quiz">Who Wants to Be a Millionaire?</h2>
+  <img src="~/assets/images/top-image.jpeg" />
+  <div class="subtitle">Why not practice quiz!</div>
   <div v-if="isSignIn">
     <SignIn />
   </div>
   <div v-if="!isSignIn">
     <SignUp />
   </div>
-</section>
+</el-container>
+

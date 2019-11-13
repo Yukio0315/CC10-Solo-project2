@@ -1,8 +1,9 @@
 <div class="container">
   <h1 class="title">
-    Simple Quiz
+    Plactice Quiz
   </h1>
   <div v-if="quizNo === 1 && start === false">
+    <img src="~/assets/images/money-tree.jpg" />
     <Start />
   </div>
   <div v-if="[1, 2, 3, 4, 5].includes(quizNo) && start === true">

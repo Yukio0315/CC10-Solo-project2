@@ -1,0 +1,11 @@
+.container {
+  text-align: center;
+  display: inline-block;
+}
+h2 {
+  font-size: 40px;
+}
+.subtitle {
+  padding-top: 20px;
+  font-size: 30px;
+}

@@ -1,7 +1,9 @@
 <div>
-  <h2>Sign up</h2>
-  <input type="text" placeholder="Email" v-model="email">
-  <input type="password" placeholder="Password" v-model="password">
-  <button @click="signUp">Register</button>
-  <button @click="toggleSignInAndSignUp">I am a member</button>
+  <h2>
+    <div>Sign up</div>
+  </h2>
+  <el-input type="text" placeholder="Email" v-model="email" />
+  <el-input type="password" placeholder="Password" v-model="password" show-password />
+  <el-button @click="signUp" type="success" plain>Register</el-button>
+  <el-button @click="toggleSignInAndSignUp" type="info" plain>I am a member</el-button>
 </div>

@@ -1,6 +1,7 @@
 <div class="looser">
-  <h2>You are looser study again</h2>
-  <table>
+  <h2>You Made Mistakes! Study Again</h2>
+  <iframe src="https://giphy.com/embed/fhAwk4DnqNgw8" width="480" height="259" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/life-school-college-fhAwk4DnqNgw8">via GIPHY</a></p>
+  <table class="table">
     <thead>
       <tr>
         <th>Question</th>
@@ -11,12 +12,12 @@
     </thead>
     <tbody v-for="(question, i) in questions">
       <tr>
-        <td>{{ question }}</td>
+        <td class="question">{{ question }}</td>
         <td>{{ answers[i] }}</td>
         <td>{{ correctAnswers[i] }}</td>
         <td>{{ rightOrWrong[i] }}</td>
       </tr>
     </tbody>
   </table>
-  <button @click="goHome">Home</button>
+  <el-button class="home" @click="goHome">Home</el-button>
 </div>

@@ -1,8 +1,10 @@
 <div>
-  <h2>Sign in</h2>
-  <input type="text" placeholder="Email" v-model="email" />
-  <input type="password" placeholder="Password" v-model="password" />
-  <button @click="signIn">Signin</button>
-  <button @click="toggleSignInAndSignUp">I am not a member</button>
+  <h2>
+    <div>Sign in</div>
+  </h2>
+  <el-input type="text" placeholder="Email" v-model="email" />
+  <el-input type="password" placeholder="Password" v-model="password" />
+  <el-button @click="signIn" type="success" plain>Signin</el-button>
+  <el-button @click="toggleSignInAndSignUp" type="info" plain>I am not a member</el-button>
 </div>
 
