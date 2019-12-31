@@ -3,7 +3,6 @@ export default {
     state.quiz = quiz.results
     state.start = true
     state.currentAnswer = state.quiz[state.quizNo - 1]["correct_answer"]
-    console.log(state.currentAnswer)
   },
   addQuizNo(state) {
     state.quizNo++

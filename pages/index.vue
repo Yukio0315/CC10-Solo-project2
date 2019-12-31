@@ -22,8 +22,6 @@ export default {
   },
   methods: {
     signIn() {
-      console.log("a")
-      console.log(this.email, this.password)
       firebase
         .auth()
         .signInWithEmailAndPassword(this.email, this.password)
